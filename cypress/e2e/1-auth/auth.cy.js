@@ -12,6 +12,7 @@ describe('auth', () => {
 
   it('check logged in user', () => {
     const user = JSON.parse(localStorage.getItem('user'))
+    cy.log(user)
     expect(user._id).to.eq('628644b379f2ff00479852f7')
     expect(user.name).to.eq('Admin SMAN 1 BANDUNG')
     expect(user.role).to.eq('admin-highschool')
