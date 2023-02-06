@@ -1,4 +1,4 @@
-describe('login', () => {
+describe('auth', () => {
   beforeEach(() => {
     cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
     cy.get('input[name=Username]')
