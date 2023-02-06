@@ -25,4 +25,22 @@ describe('auth', () => {
     const user = localStorage.getItem('user')
     expect(user, undefined)
   })
+
+  it('check wrong pasword user login', () => {
+    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.get('[aria-haspopup=menu]').click()
+    cy.contains('Logout').click()
+
+    cy.wait(1000)
+
+    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.get('input[name=Username]')
+      .type('20219271')
+    cy.get('input[name=Password]')
+      .type('99999999')
+    cy.get('button')
+      .click()
+
+    cy.get('.toastify').find('.font-medium').should('have.text', 'User atau password salah')
+  })
 })
