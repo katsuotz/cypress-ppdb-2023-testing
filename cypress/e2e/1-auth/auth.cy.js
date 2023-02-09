@@ -1,6 +1,6 @@
 describe('auth', () => {
   it('check logged in user', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/')
     cy.get('input[name=Username]')
       .type('20219271')
     cy.get('input[name=Password]')
@@ -19,7 +19,7 @@ describe('auth', () => {
   })
 
   it('logout user', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/')
     cy.get('input[name=Username]')
       .type('20219271')
     cy.get('input[name=Password]')
@@ -40,7 +40,7 @@ describe('auth', () => {
   })
 
   it('check wrong pasword user login', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/')
     cy.get('input[name=Username]')
       .type('20219271')
     cy.get('input[name=Password]')

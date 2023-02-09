@@ -1,6 +1,6 @@
 describe('profil-sekolah', () => {
   beforeEach(() => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/')
     cy.get('input[name=Username]')
       .type('20219271')
     cy.get('input[name=Password]')
@@ -11,7 +11,7 @@ describe('profil-sekolah', () => {
   })
 
   it('update school profile', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/sekolah/profil')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/sekolah/profil')
     cy.wait(1000)
     cy.get('input[name="Nama Sekolah"]')
       .clear({force: true})
@@ -26,7 +26,7 @@ describe('profil-sekolah', () => {
   })
 
   it('update school profile empty nama sekolah', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/sekolah/profil')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/sekolah/profil')
     cy.wait(1000)
     cy.get('input[name="Nama Sekolah"]')
       .clear({force: true})
@@ -41,14 +41,14 @@ describe('profil-sekolah', () => {
   })
 
   it('get school profile', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/sekolah/profil')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/sekolah/profil')
     cy.wait(1000)
     cy.get('input[name="NPSN"]').should('have.value', '20219271')
     cy.get('input[name="Nama Sekolah"]').should('have.value', 'SMAN 99 BANDUNG')
   })
 
   it('reset school profile', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/sekolah/profil')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/sekolah/profil')
     cy.wait(1000)
     cy.get('input[name="Nama Sekolah"]')
       .clear({force: true})

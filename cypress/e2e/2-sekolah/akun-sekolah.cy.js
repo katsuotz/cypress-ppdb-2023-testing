@@ -1,6 +1,6 @@
 describe('akun-sekolah', () => {
   beforeEach(() => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/')
     cy.get('input[name=Username]')
       .type('20219271')
     cy.get('input[name=Password]')
@@ -11,7 +11,7 @@ describe('akun-sekolah', () => {
   })
 
   it('get akun sekolah', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/akun-sekolah')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/akun-sekolah')
     cy.wait(1000)
     cy.get("table tbody tr:nth-child(1)")
       .find('td:nth-child(1)').should('have.text', '1')
@@ -33,7 +33,7 @@ describe('akun-sekolah', () => {
   })
 
   it('add akun', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/akun-sekolah')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/akun-sekolah')
     cy.wait(1000)
     cy.get('button').contains('Tambah Akun Baru').click({force: true})
     cy.get('input[name=Nama]').type('ABC User')
@@ -53,7 +53,7 @@ describe('akun-sekolah', () => {
   })
 
   it('add akun with same username', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/akun-sekolah')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/akun-sekolah')
     cy.wait(1000)
     cy.get('button').contains('Tambah Akun Baru').click({force: true})
     cy.get('input[name=Nama]').type('ABC User')
@@ -69,7 +69,7 @@ describe('akun-sekolah', () => {
   })
 
   it('login new user', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/')
     cy.get('[aria-haspopup=menu]').click()
     cy.contains('Logout').click()
 
@@ -93,7 +93,7 @@ describe('akun-sekolah', () => {
   })
 
   it('delete user', () => {
-    cy.visit('https://daftar-ppdb2023.deltamaya.tech/akun-sekolah')
+    cy.visit('https://daftar-ppdb2023.deltamaya.online/akun-sekolah')
     cy.wait(1000)
 
     cy.contains('ABC User')
