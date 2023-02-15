@@ -6,8 +6,11 @@ describe('profil-sekolah', () => {
     cy.get('input[name=Password]')
       .type('12345678')
     cy.get('button')
-      .click()
-    cy.saveLocalStorage('user')
+      .click().then(() => {
+      cy.wait(1000).then(() => {
+        cy.saveLocalStorage('user')
+      })
+    })
   })
 
   it('update school profile', () => {
