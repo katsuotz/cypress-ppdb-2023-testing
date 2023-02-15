@@ -6,15 +6,16 @@ describe('auth', () => {
     cy.get('input[name=Password]')
       .type('12345678')
     cy.get('button')
-      .click().then( () => {
-      cy.saveLocalStorage('user')
+      .click().then(() => {
+      cy.wait(1000).then(() => {
+        cy.saveLocalStorage('user')
 
-      cy.wait(1000)
 
-      const user = JSON.parse(localStorage.getItem('user')) || {}
-      expect(user._id).to.eq('628644b379f2ff00479852f7')
-      expect(user.name).to.eq('Admin SMAN 1 BANDUNG')
-      expect(user.role).to.eq('admin-highschool')
+        const user = JSON.parse(localStorage.getItem('user')) || {}
+        expect(user._id).to.eq('628644b379f2ff00479852f7')
+        expect(user.name).to.eq('Admin SMAN 1 BANDUNG')
+        expect(user.role).to.eq('admin-highschool')
+      })
     })
   })
 
@@ -28,14 +29,14 @@ describe('auth', () => {
       .click()
     cy.saveLocalStorage('user')
 
-    cy.wait(1000)
+    cy.wait(1000).then(() => {
+      cy.get('[aria-haspopup=menu]').click()
+      cy.contains('Logout').click().then(() => {
+        cy.wait(1000)
 
-    cy.get('[aria-haspopup=menu]').click()
-    cy.contains('Logout').click().then(() => {
-      cy.wait(1000)
-
-      const user = localStorage.getItem('user')
-      expect(user).to.be.null
+        const user = localStorage.getItem('user')
+        expect(user).to.be.null
+      })
     })
   })
 
